@@ -6,22 +6,20 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 21:23:29 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/07 22:32:43 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/08 22:17:34 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-char	*ft_strncpy(char *dst, const char *src, size_t len);
+#include "libft.h"
+#include <string.h>
 
 int	main()
 {
-	char sa[100] = "je suis";
-	char da[100] = "non c moi le roi";
+	char src[100] = "je suis l";
+	char dst[100] = "non c moi le roi";
 
-	printf("%s\n", sa);
-	printf("%s\n", da);
-	ft_strncpy(da, sa, 3);
-	printf("%s\n", da);
+	printf("ft_strcpy : %s \tstrcpy: %s", ft_strcpy(dst, src) , strcpy(dst, src));
+	printf("\n\nft_strncpy : %s \t strncpy: %s", ft_strncpy(dst, src, 5) , strncpy(dst, src, 5));
 	return (0);
 }
