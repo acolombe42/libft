@@ -6,9 +6,22 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 17:18:29 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/12 17:19:08 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/12 17:45:29 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	ft_bzero(void *s, size_t len)
+{
+	size_t			i;
+	unsigned char	*s2;
+
+	s2 = (unsigned char*)s;
+	i = 0;
+	while (i != len && len != 0)
+	{
+		s2[i] = 0;
+		i++;
+	}
+}

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 16:18:48 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/12 18:00:36 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/12 17:49:18 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/12 18:17:29 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t				i;
-	unsigned char		*src2;
 	unsigned char		*dst2;
+	const unsigned char	*src2;
 
-	src2 = (unsigned char*)src;
 	dst2 = (unsigned char*)dst;
+	src2 = (const unsigned char*)src;
 	i = 0;
-	while (i != n)
+	while (i != len)
 	{
 		dst2[i] = src2[i];
-		if (dst2[i] == (unsigned char)c)
-		{
-			i++;
-			return (&dst2[i]);
-		}
 		i++;
 	}
-	return (NULL);
+	return (dst2);
 }

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 16:18:48 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/12 18:00:36 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/12 18:29:04 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/12 19:23:45 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t				i;
-	unsigned char		*src2;
-	unsigned char		*dst2;
+	const unsigned char	*s11;
+	const unsigned char	*s22;
 
-	src2 = (unsigned char*)src;
-	dst2 = (unsigned char*)dst;
+	s11 = (const unsigned char*)s1;
+	s22 = (const unsigned char*)s2;
 	i = 0;
 	while (i != n)
 	{
-		dst2[i] = src2[i];
-		if (dst2[i] == (unsigned char)c)
-		{
+		if (s11[i] == s22[i])
 			i++;
-			return (&dst2[i]);
-		}
-		i++;
+		else
+			return (s11[i] - s22[i]);
 	}
-	return (NULL);
+	return (0);
 }

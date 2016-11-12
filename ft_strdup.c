@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/12 16:18:48 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/12 18:00:36 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/12 18:49:26 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/12 19:10:31 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	size_t				i;
-	unsigned char		*src2;
-	unsigned char		*dst2;
+	size_t	i;
+	char	*s2;
 
-	src2 = (unsigned char*)src;
-	dst2 = (unsigned char*)dst;
 	i = 0;
-	while (i != n)
-	{
-		dst2[i] = src2[i];
-		if (dst2[i] == (unsigned char)c)
-		{
-			i++;
-			return (&dst2[i]);
-		}
+	while (s1[i])
 		i++;
-	}
-	return (NULL);
+	s2 = (char*)(malloc(sizeof(char) * (i + 1)));
+	if (s2 == NULL)
+		return (NULL);
+	ft_strcpy(s2, s1);
+	return (&s2[0]);
 }
