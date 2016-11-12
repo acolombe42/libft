@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 21:23:29 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/08 22:17:34 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/09 09:31:45 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/09 14:30:46 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <string.h>
 
-int	main()
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char src[100] = "je suis l";
-	char dst[100] = "non c moi le roi";
+	size_t i;
+	unsigned char newc = (unsigned char)c;
+	unsigned char *newb = (unsigned char*)b;
 
-	printf("ft_strcpy : %s \tstrcpy: %s", ft_strcpy(dst, src) , strcpy(dst, src));
-	printf("\n\nft_strncpy : %s \t strncpy: %s", ft_strncpy(dst, src, 5) , strncpy(dst, src, 5));
-	return (0);
+	i = 0;
+	while (i != len)
+	{
+		newb[i] = newc;
+		i++;
+	}
+	return (b);
 }
