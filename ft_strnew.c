@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 14:34:08 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 16:31:16 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/16 15:14:33 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/16 19:30:08 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strnew(size_t size)
 {
-	void	*s;
+	char	*s;
 	size_t	i;
 
 	i = 0;
-	s = (void*)malloc(sizeof(*s) * (size));
+	s = (char*)malloc(sizeof(char) * (size + 1));
 	if (s == NULL)
 		return (NULL);
-	while (((char*)s)[i])
+	while (size != 0)
 	{
-		((char*)s)[i] = 0;
+		s[i] = '\0';
 		i++;
+		size--;
 	}
 	return (s);
 }

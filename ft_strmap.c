@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 14:34:08 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 16:31:16 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/16 16:40:37 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/16 17:19:00 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	void	*s;
-	size_t	i;
+	char	*s2;
+	int		i;
 
-	i = 0;
-	s = (void*)malloc(sizeof(*s) * (size));
-	if (s == NULL)
+	i = ft_strlen(s);
+	s2 = (char*)malloc(sizeof(char) * (i + 1));
+	if (s2 == NULL)
 		return (NULL);
-	while (((char*)s)[i])
+	i++;
+	i = 0;
+	while (s[i])
 	{
-		((char*)s)[i] = 0;
+		s2[i] = s[i];
 		i++;
 	}
-	return (s);
+	f(s2[i]);
+	s2[i] = '\0';
+	return (s2);
 }

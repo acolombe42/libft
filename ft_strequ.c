@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 14:34:08 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 16:31:16 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/16 19:02:59 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/16 19:31:10 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	void	*s;
-	size_t	i;
+	size_t i;
 
 	i = 0;
-	s = (void*)malloc(sizeof(*s) * (size));
-	if (s == NULL)
-		return (NULL);
-	while (((char*)s)[i])
-	{
-		((char*)s)[i] = 0;
+	while (s1[i] == s2[i] && s1[i])
 		i++;
-	}
-	return (s);
+	if (s1[i] == s2[i])
+		return (1);
+	return (0);
 }

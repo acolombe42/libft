@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 14:34:08 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 16:31:16 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/16 20:10:41 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/16 20:22:06 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*s;
+	size_t	len;
 	size_t	i;
+	size_t	j;
+	char	*s3;
 
 	i = 0;
-	s = (void*)malloc(sizeof(*s) * (size));
-	if (s == NULL)
+	j = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	s3 = (char*)malloc(sizeof(char) * (len + 1));
+	if (s3 == NULL)
 		return (NULL);
-	while (((char*)s)[i])
+	while (s1[j])
 	{
-		((char*)s)[i] = 0;
-		i++;
+		s3[j] = s1[j];
+		j++;
 	}
-	return (s);
+	while (s2[i])
+	{
+		s3[j] = s2[i];
+		i++;
+		j++;
+	}
+	s3[j] = '\0';
+	return (s3);
 }
