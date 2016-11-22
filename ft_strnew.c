@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 15:14:33 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 19:30:08 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/22 15:41:19 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,11 @@
 char	*ft_strnew(size_t size)
 {
 	char	*s;
-	size_t	i;
 
-	i = 0;
-	s = (char*)malloc(sizeof(char) * (size + 1));
+	s = ft_memalloc(size + 1);
 	if (s == NULL)
 		return (NULL);
-	while (size != 0)
-	{
-		s[i] = '\0';
-		i++;
-		size--;
-	}
+	else
+		s[size + 1] = '\0';
 	return (s);
 }
