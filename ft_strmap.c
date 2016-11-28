@@ -21,14 +21,12 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	s2 = (char*)malloc(sizeof(char) * (i + 1));
 	if (s2 == NULL)
 		return (NULL);
-	i++;
 	i = 0;
 	while (s[i])
 	{
-		s2[i] = s[i];
+		s2[i] = f(s[i]);
 		i++;
 	}
-	f(s2[i]);
 	s2[i] = '\0';
 	return (s2);
 }

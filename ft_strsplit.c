@@ -62,7 +62,7 @@ char	**ft_strsplit(char const *s, char c)
 		j = i;
 		if (ft_is_begin_word(s, c, i))
 		{
-			while (s[i] != c)
+			while (s[i] != c && s[i] != '\0')
 				i++;
 			tab[k++] = ft_strsub(s, j, (i - j));
 		}
