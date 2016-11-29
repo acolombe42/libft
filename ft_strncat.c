@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:55:04 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/14 22:13:25 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/28 16:34:56 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 
 	j = ft_strlen(s1);
 	i = 0;
-	while (i < n && src[i])
+	while (i < n && s2[i])
 	{
 		s1[j] = s2[i];
 		i++;

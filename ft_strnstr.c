@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:37:07 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/22 16:01:29 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/29 18:54:48 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	a = 0;
 	if (little[a] == '\0')
 		return ((char*)big);
-	while (big[a])
+	while (a < n && big[a])
 	{
 		i = 0;
 		j = a;
@@ -30,7 +30,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 			i++;
 			j++;
 		}
-		if (j <= n && little[i] == big[j])
+		if (!little[i])
 			return ((char*)&big[a]);
 		a++;
 	}
