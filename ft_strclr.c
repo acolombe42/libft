@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 15:42:01 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/15 16:46:53 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 00:00:23 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ void	ft_strclr(char *s)
 	size_t	j;
 
 	j = 0;
-	i = ft_strlen(s);
-	while (j != i)
+	if (s != NULL)
 	{
-		s[j] = '\0';
-		j++;
+		i = ft_strlen(s);
+		while (j != i)
+		{
+			s[j] = '\0';
+			j++;
+		}
 	}
 }

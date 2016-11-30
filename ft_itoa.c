@@ -1,42 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 20:27:16 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/30 00:29:40 by acolombe         ###   ########.fr       */
+/*   Created: 2016/11/29 21:37:30 by acolombe          #+#    #+#             */
+/*   Updated: 2016/11/29 23:54:26 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strtrim(char const *s)
+static	int	ft_nb_decimal(int n)
 {
-	size_t	i;
-	size_t	l;
-	size_t	j;
-	char	*s1;
+	int i;
 
 	i = 0;
-	j = 0;
-	if (s == NULL)
-		return (NULL);
-	l = ft_strlen(s) - 1;
-	while ((s[i] == ' ' || s[i] == ',' || s[i] == '\n' || s[i] == '\t') && s[i])
+	while (n != 0)
+	{
 		i++;
-	while (s[l] == ' ' || s[l] == ',' || s[l] == '\n' || s[l] == '\t')
-		l--;
-	l++;
-	if (s[i] == '\0')
-		i = 0;
-	s1 = ft_memalloc(((l - i) + 1));
-	if (s1 == NULL)
+		n = n / 10;
+	}
+	return (i);
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	j = 0;
+	i = ft_nb_decimal(n);
+	if (n <= 0)
+		i++;
+	if ((str = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
 		return (NULL);
-	while (i != l)
-		s1[j++] = s[i++];
-	s1[j] = '\0';
-	return (s1);
+	str[i] = '\0';
+	if (n < 0)
+	{
+		str[0] = '-';
+		j++;
+		n = n * -1;
+	}
+	while (i-- > j)
+	{
+		str[i] = (n % 10) + 48;
+		n = n / 10;
+	}
+	return (str);
 }

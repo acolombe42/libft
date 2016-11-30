@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 17:22:24 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 17:25:16 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 00:32:40 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_putstr_fd(char const *s, int fd)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	if (s != NULL)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		while (s[i])
+		{
+			ft_putchar_fd(s[i], fd);
+			i++;
+		}
 	}
 }

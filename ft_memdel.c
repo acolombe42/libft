@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 15:09:42 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 15:13:20 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/29 23:58:01 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	*ap = NULL;
+	if (ap != NULL)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

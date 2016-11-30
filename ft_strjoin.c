@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 20:10:41 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 20:22:06 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 00:26:09 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	s3 = (char*)malloc(sizeof(char) * (len + 1));
 	if (s3 == NULL)

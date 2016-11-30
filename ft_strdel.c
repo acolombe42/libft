@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 16:37:10 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/16 16:39:32 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/29 23:58:58 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	free(*as);
-	*as = NULL;
+	if (as != NULL)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }
