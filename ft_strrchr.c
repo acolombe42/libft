@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 21:21:45 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/14 21:29:24 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 15:18:31 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])
 		i++;
-	while (i != 0)
+	while (i != -1)
 	{
 		if (s[i] == (char)c)
 			return ((char*)&s[i]);

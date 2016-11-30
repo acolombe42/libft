@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:25:41 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/30 00:01:22 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 23:15:37 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striter(char *s, void (*f)(char *))
 	size_t	i;
 
 	i = 0;
-	if (s != NULL)
+	if (s != NULL && f != NULL)
 	{
 		while (s[i])
 		{

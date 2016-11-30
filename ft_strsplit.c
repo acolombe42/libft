@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 14:09:14 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/30 00:35:11 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 23:03:02 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,49 +25,45 @@ static	int	ft_nb_word(char const *s, char c)
 			i++;
 		if (s[i] == '\0')
 			return (j);
-		while(s[i] != c && s[i])
+		while (s[i] != c && s[i])
 			i++;
 		j++;
 	}
 	return (j);
 }
 
-static	int	ft_is_begin_word(char const *s, char c, int i)
+static	int	ft_word_size(char const *s, char c)
 {
-	if (i == 0 && s[i] != c)
-		return (1);
-	if (s[i] != c && s[i - 1] == c)
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	size_t	i;
 	size_t	j;
-	size_t	k;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	k = 0;
 	i = 0;
-	tab = (char**)malloc(sizeof(char*) * ((ft_nb_word(s, c))));
+	j = ft_nb_word(s, c);
+	tab = (char**)malloc(sizeof(char*) * ((ft_nb_word(s, c) + 1)));
 	if (tab == NULL)
 		return (NULL);
-	if (ft_nb_word(s, c) == 0)
-		return (tab);
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	tab[ft_nb_word(s, c)] = NULL;
+	while (j--)
 	{
-		j = i;
-		if (ft_is_begin_word(s, c, i))
-		{
-			while (s[i] != c && s[i] != '\0')
-				i++;
-			tab[k++] = ft_strsub(s, j, (i - j));
-		}
+		while (*s == c && *s)
+			s++;
+		tab[i] = ft_strsub(s, 0, ft_word_size(s, c));
+		if (tab[i] == NULL)
+			return (NULL);
+		s = s + ft_word_size(s, c);
 		i++;
 	}
 	return (tab);

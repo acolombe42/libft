@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 19:02:59 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/30 00:22:07 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/11/30 14:20:20 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strequ(char const *s1, char const *s2)
 {
 	size_t i;
-	
+
 	if (s1 != NULL && s2 != NULL)
 	{
 		i = 0;
