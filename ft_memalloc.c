@@ -6,7 +6,7 @@
 /*   By: acolombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 14:34:08 by acolombe          #+#    #+#             */
-/*   Updated: 2016/11/25 17:49:06 by acolombe         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:36:22 by acolombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memalloc(size_t size)
 	size_t	i;
 
 	i = 0;
-	s = (void*)malloc(sizeof(*s) * (size));
+	s = (void*)malloc(sizeof(*s) * (size + 1));
 	if (s == NULL)
 		return (NULL);
 	while (((char*)s)[i])
